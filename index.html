@@ -27,16 +27,22 @@
         </p>
       </div>
       <div class="welcome-section">
-        <h1 class="welcome">Welcome to Company</h1>
+        <h1 class="welcome">
+          Welcome to <span style="color:#f46f04">Company</span>
+        </h1>
         <form action="#" class="form">
           <label>Username</label>
-          <input type="text" name="username" />
+          <input type="text" name="username" class="username"/>
           <label>Password</label>
-          <input type="password" name="password" />
-          <input type="button" value="Create account" />
-          <input type="submit" value="Login" />
+          <input type="password" name="password" class="password"/>
+          <div class="actions">
+            <input type="button" value="Create account" />
+            <input type="submit" value="Login" />
+          </div>
         </form>
       </div>
+      <div class="aside"></div>
     </main>
+    <script src="./src/main.js"></script>
   </body>
 </html>

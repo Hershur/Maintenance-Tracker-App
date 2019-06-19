@@ -7,8 +7,16 @@
 
 main {
   display: grid;
-  grid-template-columns: 1fr 1.4fr;
+  grid-template-columns: 1.1fr 1.4fr 0.2fr;
   grid-gap: 10px;
+}
+
+.aside {
+  background-color: #0a2ecd;
+  color: white;
+  height: 100vh;
+  border-top-left-radius: 95%;
+  border-bottom-left-radius: 25%;
 }
 
 .header {
@@ -66,24 +74,66 @@ main {
 
 .welcome-section {
   position: relative;
-  top: 20%;
-  margin: 10px;
+  margin: auto;
+  width: 95%;
+  height: 65%;
+  color: #0a2ecd;
+  justify-content: center;
+}
+
+.welcome {
+  padding-bottom: 50px;
+  text-align: center;
 }
 
 .form {
   display: flex;
   flex-direction: column;
+  justify-self: center;
 }
 
 label {
   display: block;
   width: 100px;
+  margin-top: 10px;
+  margin-left: 80px;
+  font-size: 18px;
+  padding-top: 10px;
 }
 
 input {
   padding: 1rem;
-  width: 60%;
-  border-radius: 5px;
+  width: 70%;
   font-size: 15px;
   outline: none;
+  margin: 10px 0 0 80px;
+  border: none;
+}
+
+.username {
+  border-bottom: solid 1px #f46f04;
+}
+
+input[type='password'] {
+  border-bottom: solid 1px #f46f04;
+}
+
+input[type='button'],
+input[type='submit'] {
+  width: 35%;
+  cursor: pointer;
+}
+
+input[type='button'] {
+  background-color: #fde303;
+}
+
+input[type='submit'] {
+  background-color: #f46f04;
+}
+
+.actions {
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
 }
