@@ -6,7 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Maintenance Tracker App</title>
     <link rel="stylesheet" href="./styles/style.css" />
-    <link href="https://fonts.googleapis.com/css?family=Poppins|Quicksand&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins|Quicksand&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <main>
@@ -32,7 +35,7 @@
         <h1 class="welcome">
           Welcome to <span style="color:#f46f04">Company</span>
         </h1>
-        <form action="#" class="form">
+        <form action="#" class="form" autocomplete="autocomplete">
           <label id="username-label">Username</label>
           <input
             type="text"
@@ -48,14 +51,17 @@
             placeholder="Password"
           />
           <div class="actions">
-            <input type="button" value="Create account" />
-            <input type="submit" value="Login" />
+            <input type="button" value="CREATE ACCOUNT" id="create-account" />
+            <input type="submit" value="LOGIN" />
           </div>
         </form>
       </div>
-      <div class="aside"></div>
+      <div class="aside">
+        <div class="ball"></div>
+        <div class="square"></div>
+        <div class="triangle"></div>
+      </div>
     </main>
-    </div>
     <script src="./src/main.js"></script>
   </body>
 </html>

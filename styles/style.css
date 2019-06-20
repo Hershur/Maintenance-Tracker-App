@@ -44,9 +44,6 @@ main {
   text-align: center;
   padding-top: 15px;
   border-radius: 50%;
-  font-size: 20px;
-  font-weight: 800;
-  color: blue;
 }
 
 .logo2 {
@@ -60,9 +57,6 @@ main {
   text-align: center;
   padding-top: 15px;
   border-radius: 50%;
-  font-size: 20px;
-  font-weight: 800;
-  color: blue;
   position: absolute;
   left: -10px;
 }
@@ -203,11 +197,12 @@ input[type='button'],
 input[type='submit'] {
   width: 35%;
   cursor: pointer;
-  color: #0a2ecd;
+  color: #fefeff;
 }
 
 input[type='button'] {
-  background-color: #fde303;
+  background-color: #0a2ecd;
+  transition: 0.5s;
 }
 
 input[type='button']:hover {
@@ -217,6 +212,7 @@ input[type='button']:hover {
 
 input[type='submit'] {
   background-color: #f46f04;
+  transition: 0.5s;
 }
 
 input[type='submit']:hover {
@@ -229,4 +225,105 @@ input[type='submit']:hover {
   width: 85%;
   justify-content: space-between;
   padding-top: 50px;
+}
+
+.ball {
+  margin-left: 25px;
+  height: 52px;
+  width: 50px;
+  background-color: #f46f04;
+  display: inline-block;
+  box-sizing: border-box;
+  padding-top: 15px;
+  border-radius: 50%;
+  position: absolute;
+  animation-name: ball;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  transition: ease-in-out;
+}
+
+@keyframes ball {
+  0% {
+    top: 0px;
+    right: 0px;
+  }
+
+  50% {
+    background-color: #fde303;
+  }
+
+  100% {
+    top: 600px;
+    right: 0px;
+  }
+}
+
+.square {
+  height: 45px;
+  width: 40px;
+  background-color: #fde303;
+  display: inline-block;
+  box-sizing: border-box;
+  padding-top: 15px;
+  position: absolute;
+  animation-name: square;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  transition: ease-in-out;
+}
+
+@keyframes square {
+  0% {
+    top: 600px;
+    right: 0px;
+  }
+
+  50% {
+    background-color: #f46f04;
+  }
+
+  100% {
+    top: 200px;
+    right: 0px;
+  }
+}
+
+.triangle {
+  margin-left: 25px;
+  width: 0;
+  height: 0;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-bottom: 60px solid green;
+  display: inline-block;
+  box-sizing: border-box;
+  padding-top: 15px;
+  position: absolute;
+  animation-name: triangle;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  transition: ease-in-out;
+}
+
+@keyframes triangle {
+  0% {
+    top: 200px;
+    right: 0px;
+  }
+
+  25% {
+    top: 500px;
+    right: 0px;
+  }
+
+  50% {
+    top: 200px;
+    right: 0px;
+  }
+
+  100% {
+    top: 20px;
+    right: 0px;
+  }
 }

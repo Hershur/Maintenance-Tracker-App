@@ -18,3 +18,9 @@ passwordField.addEventListener('focus', () => {
 passwordField.addEventListener('blur', () => {
   passwordLabel.style.visibility = 'hidden';
 });
+
+let createAccount = document.getElementById('create-account');
+
+createAccount.addEventListener('click', () => {
+  alert('create account');
+});
