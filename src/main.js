@@ -20,7 +20,11 @@ passwordField.addEventListener('blur', () => {
 });
 
 let createAccount = document.getElementById('create-account');
+let welcomeSection = document.getElementById('welcome-section');
+let createAccountSection = document.getElementById('create-account-section');
 
-createAccount.addEventListener('click', () => {
-  alert('create account');
+createAccount.addEventListener('click', e => {
+  e.preventDefault();
+  welcomeSection.style.display = 'none';
+  createAccountSection.display = 'block';
 });

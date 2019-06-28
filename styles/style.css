@@ -89,7 +89,11 @@ main {
   font-size: 1.18em;
 }
 
-.welcome-section {
+#create-account-section {
+  display: none;
+}
+
+#welcome-section {
   position: relative;
   margin: auto;
   width: 95%;
@@ -227,23 +231,23 @@ input[type='submit']:hover {
   padding-top: 50px;
 }
 
-.ball {
+.ball1 {
   margin-left: 25px;
-  height: 52px;
-  width: 50px;
+  height: 47px;
+  width: 45px;
   background-color: #f46f04;
   display: inline-block;
   box-sizing: border-box;
   padding-top: 15px;
   border-radius: 50%;
   position: absolute;
-  animation-name: ball;
+  animation-name: ball1;
   animation-duration: 3s;
   animation-iteration-count: infinite;
   transition: ease-in-out;
 }
 
-@keyframes ball {
+@keyframes ball1 {
   0% {
     top: 0px;
     right: 0px;
@@ -254,26 +258,58 @@ input[type='submit']:hover {
   }
 
   100% {
-    top: 600px;
-    right: 0px;
+    top: 288px;
+    right: 40px;
   }
 }
 
-.square {
-  height: 45px;
-  width: 40px;
-  background-color: #fde303;
+.ball2 {
+  margin-left: 25px;
+  height: 47px;
+  width: 45px;
+  background-color: aquamarine;
   display: inline-block;
   box-sizing: border-box;
   padding-top: 15px;
+  border-radius: 50%;
   position: absolute;
-  animation-name: square;
+  animation-name: ball2;
   animation-duration: 3s;
   animation-iteration-count: infinite;
   transition: ease-in-out;
 }
 
-@keyframes square {
+@keyframes ball2 {
+  0% {
+    top: 0px;
+    right: 0px;
+  }
+
+  50% {
+    background-color: #fde303;
+  }
+
+  100% {
+    top: 350px;
+    right: 0px;
+  }
+}
+
+.square1 {
+  height: 45px;
+  width: 30px;
+  background-color: #fde303;
+  display: inline-block;
+  box-sizing: border-box;
+  padding-top: 15px;
+  position: absolute;
+  animation-name: square1;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  transition: ease-in-out;
+}
+
+@keyframes square1 {
   0% {
     top: 600px;
     right: 0px;
@@ -284,8 +320,38 @@ input[type='submit']:hover {
   }
 
   100% {
-    top: 200px;
+    top: 288px;
+    right: 4px;
+  }
+}
+
+.square2 {
+  height: 45px;
+  width: 30px;
+  background-color: #fd036b;
+  display: inline-block;
+  box-sizing: border-box;
+  padding-top: 15px;
+  position: absolute;
+  animation-name: square2;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  transition: ease-in-out;
+}
+
+@keyframes square2 {
+  0% {
+    top: 600px;
     right: 0px;
+  }
+
+  50% {
+    background-color: #f46f04;
+  }
+
+  100% {
+    top: 350px;
+    right: 50px;
   }
 }
 
@@ -293,9 +359,9 @@ input[type='submit']:hover {
   margin-left: 25px;
   width: 0;
   height: 0;
-  border-left: 30px solid transparent;
-  border-right: 30px solid transparent;
-  border-bottom: 60px solid green;
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  border-bottom: 70px solid green;
   display: inline-block;
   box-sizing: border-box;
   padding-top: 15px;
@@ -312,18 +378,13 @@ input[type='submit']:hover {
     right: 0px;
   }
 
-  25% {
+  50% {
     top: 500px;
     right: 0px;
   }
 
-  50% {
-    top: 200px;
-    right: 0px;
-  }
-
   100% {
-    top: 20px;
+    top: 200px;
     right: 0px;
   }
 }
