@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>User Page</title>
+    <title>Create Account</title>
     <link rel="stylesheet" href="./styles/style.css" />
     <link
       href="https://fonts.googleapis.com/css?family=Poppins|Quicksand&display=swap"
@@ -31,18 +31,20 @@
           repair or maintenance requests and monitor the status of the request.
         </p>
       </div>
-      <div id="welcome-section">
+      <div id="create-section">
         <h1 class="create-page">
           Create <span style="color:#f46f04">Account</span>
         </h1>
         <form action="#" class="form" autocomplete="autocomplete">
-          <label id="username-label">Username</label>
+          <label id="username-label">Full Name</label>
           <input
             type="text"
             name="username"
             id="username"
-            placeholder="Username"
+            placeholder="Full Name"
           />
+          <label id="email-label">Email</label>
+          <input type="text" name="email" id="email" placeholder="Email" />
           <label id="password-label">Password</label>
           <input
             type="password"
@@ -50,9 +52,7 @@
             id="password"
             placeholder="Password"
           />
-          <label id="password-label">Email</label>
-          <input type="text" name="email" id="email" placeholder="Email" />
-          <label id="password-label">Phone Number</label>
+          <label id="phone-label">Phone Number</label>
           <input
             type="text"
             name="phone-number"
@@ -62,11 +62,11 @@
           <div class="actions">
             <input
               type="button"
-              onclick="window.location.href='user-page.html'"
-              value="CREATE ACCOUNT"
+              onclick="window.location.href='index.html'"
+              value="LOGIN"
               id="create-account"
             />
-            <input type="submit" value="LOGIN" />
+            <input type="submit" value="CREATE ACCOUNT" />
           </div>
         </form>
       </div>

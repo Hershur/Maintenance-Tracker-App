@@ -103,10 +103,6 @@ main {
   text-align: center;
 }
 
-.create-page {
-  margin-left: 85px;
-}
-
 .form {
   display: flex;
   flex-direction: column;
@@ -115,7 +111,7 @@ main {
 
 label {
   display: block;
-  width: 100px;
+  width: 200px;
   margin-top: 10px;
   margin-left: 80px;
   font-size: 18px;
@@ -123,8 +119,11 @@ label {
 }
 
 #username-label,
-#password-label {
+#password-label,
+#phone-label,
+#email-label {
   visibility: hidden;
+  color: #0a2ecd;
 }
 
 input {
@@ -390,7 +389,17 @@ input[type='submit']:hover {
   }
 }
 
-/* Create accout page styles */
+/* Create account page styles */
+/*  */
+/*  */
+/*  */
+
+.create-page {
+  margin-left: 85px;
+  color: #0a2ecd;
+  margin-top: 10px;
+  padding-bottom: -10px;
+}
 
 .users {
   display: grid;
@@ -410,6 +419,11 @@ input[type='submit']:hover {
   position: relative;
   left: -19px;
 }
+
+/* User dashboard styles */
+/*  */
+/*  */
+/*  */
 
 .user-id {
   position: absolute;
@@ -454,11 +468,12 @@ li {
 }
 
 table {
-  width: 100%;
+  width: 95%;
   margin: 10px;
   box-sizing: border-box;
   border-collapse: collapse;
   color: #0a2ecd;
+  overflow: hidden;
 }
 
 table tr th {
@@ -469,7 +484,7 @@ table tr th {
 
 table tr td {
   text-align: center;
-  padding: 14px;
+  padding: 15px;
 }
 
 table tr:nth-child(even) {
