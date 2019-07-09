@@ -491,3 +491,7 @@ table tr:nth-child(even) {
   background-color: #0a2ecd;
   color: #fefeff;
 }
+
+li i {
+  color: #f46f04;
+}
