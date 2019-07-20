@@ -17,7 +17,8 @@
     "js",
     "html",
     "css",
-    "webapp"
+    "webapp",
+    "express"
   ],
   "author": "Assurance Femi",
   "license": "MIT",

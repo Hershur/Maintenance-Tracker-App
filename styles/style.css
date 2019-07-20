@@ -51,7 +51,7 @@ main {
   margin-left: 20px;
   height: 52px;
   width: 50px;
-  background-color: #f46f04;
+  background-color: #ee7009;
   display: inline-block;
   box-sizing: border-box;
   text-align: center;
@@ -182,12 +182,13 @@ input:focus::-ms-input-placeholder {
   color: transparent;
 }
 
-form > input[type='text'] {
-  border-bottom: solid 1px #f46f04;
+form > input[type='text'],
+input[type='number'] {
+  border-bottom: solid 1px #ee7009;
 }
 
 input[type='password'] {
-  border-bottom: solid 1px #f46f04;
+  border-bottom: solid 1px #ee7009;
 }
 
 input[type='button'],
@@ -229,7 +230,7 @@ input[type='submit']:hover {
   margin-left: 25px;
   height: 47px;
   width: 45px;
-  background-color: #f46f04;
+  background-color: #ee7009;
   display: inline-block;
   box-sizing: border-box;
   padding-top: 15px;
@@ -317,7 +318,7 @@ input[type='submit']:hover {
   }
 
   50% {
-    background-color: #f46f04;
+    background-color: #ee7009;
   }
 
   100% {
@@ -347,7 +348,7 @@ input[type='submit']:hover {
   }
 
   50% {
-    background-color: #f46f04;
+    background-color: #ee7009;
   }
 
   100% {
@@ -412,7 +413,7 @@ input[type='submit']:hover {
   margin-left: 25px;
   height: 53px;
   width: 50px;
-  background-color: #f46f04;
+  background-color: #ee7009;
   display: inline-block;
   box-sizing: border-box;
   padding-top: 15px;
@@ -441,6 +442,7 @@ input[type='submit']:hover {
   height: 100vh;
   border-top-right-radius: 20%;
   border-bottom-right-radius: 20%;
+  overflow: hidden;
 }
 
 li {
@@ -451,7 +453,12 @@ li {
   position: relative;
   top: 250px;
   font-size: 1.3em;
-  box-sizing: bSSorder-box;
+  box-sizing: border-box;
+}
+
+.tasks ul {
+  border-top: #ee7009 solid 2px;
+  padding-top: 25px;
 }
 
 .tasks ul li i {
@@ -465,7 +472,7 @@ li {
 }
 
 .tasks ul li:hover {
-  background-color: #f46f04;
+  background-color: #ee7009;
 }
 
 table {
@@ -478,7 +485,7 @@ table {
 }
 
 table tr th {
-  color: #f46f04;
+  color: #ee7009;
   padding-bottom: 20px;
   padding-top: 20px;
 }
@@ -494,7 +501,7 @@ table tr:nth-child(even) {
 }
 
 li i {
-  color: #f46f04;
+  color: #ee7009;
 }
 
 li:hover i {
