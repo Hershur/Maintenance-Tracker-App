@@ -27,46 +27,38 @@
           <ul>
             <li><i class="fas fa-user"></i>Profile</li>
             <li id="tasks"><i class="fas fa-tasks"></i>Tasks</li>
-            <li onclick="window.location.href='make-request.html'">
-              <i class="fas fa-user-cog"></i>Make Request
-            </li>
+            <li><i class="fas fa-user-cog"></i>Make Request</li>
             <li onclick="window.location.href='dashboard.html'">
               <i class="fas fa-bars"></i>View All Requests
             </li>
           </ul>
         </div>
       </div>
-      <div class="requests">
-        <table class="requests-table">
-          <tr>
-            <th>S/N</th>
-            <th>User</th>
-            <th>Request</th>
-            <th>Date</th>
-            <th>Status</th>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Jane</td>
-            <td>Fix Table</td>
-            <td></td>
-            <td>Pending</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Jane</td>
-            <td>Lights not switching on</td>
-            <td></td>
-            <td>Pending</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Jane</td>
-            <td>Electric socket not working</td>
-            <td></td>
-            <td>Resolved</td>
-          </tr>
-        </table>
+      <div id="make-request-section">
+        <h1 class="create-page">
+          Make a <span style="color:#f46f04">Request</span>
+        </h1>
+        <form action="#" class="form" autocomplete="autocomplete">
+          <label id="name-label">Name</label>
+          <input type="text" name="name" id="name" placeholder="Name" />
+          <label id="request-label">Request</label>
+          <input
+            type="text"
+            name="request"
+            id="request"
+            placeholder="Request"
+          />
+          <label id="department-label">Department</label>
+          <input
+            type="text"
+            name="department"
+            id="department"
+            placeholder="Department"
+          />
+          <div class="actions">
+            <input type="submit" value="MAKE REQUEST" />
+          </div>
+        </form>
       </div>
     </main>
     <script src="./src/main.js"></script>

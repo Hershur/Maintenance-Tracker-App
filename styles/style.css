@@ -116,12 +116,6 @@ label {
   margin-left: 80px;
   font-size: 18px;
   padding-top: 10px;
-}
-
-#username-label,
-#password-label,
-#phone-label,
-#email-label {
   visibility: hidden;
   color: #0a2ecd;
 }
@@ -242,9 +236,16 @@ input[type='submit']:hover {
   border-radius: 50%;
   position: absolute;
   animation-name: ball1;
-  animation-duration: 3s;
+  animation-duration: 5s;
   animation-iteration-count: infinite;
   transition: ease-in-out;
+}
+
+#pass-error {
+  color: red;
+  text-align: center;
+  padding-top: 25px;
+  font-size: 1.1em;
 }
 
 @keyframes ball1 {
@@ -274,7 +275,7 @@ input[type='submit']:hover {
   border-radius: 50%;
   position: absolute;
   animation-name: ball2;
-  animation-duration: 3s;
+  animation-duration: 5s;
   animation-iteration-count: infinite;
   transition: ease-in-out;
 }
@@ -304,7 +305,7 @@ input[type='submit']:hover {
   padding-top: 15px;
   position: absolute;
   animation-name: square1;
-  animation-duration: 3s;
+  animation-duration: 5s;
   animation-iteration-count: infinite;
   transition: ease-in-out;
 }
@@ -334,7 +335,7 @@ input[type='submit']:hover {
   padding-top: 15px;
   position: absolute;
   animation-name: square2;
-  animation-duration: 3s;
+  animation-duration: 5s;
   animation-iteration-count: infinite;
   transition: ease-in-out;
 }
@@ -367,7 +368,7 @@ input[type='submit']:hover {
   padding-top: 15px;
   position: absolute;
   animation-name: triangle;
-  animation-duration: 3s;
+  animation-duration: 5s;
   animation-iteration-count: infinite;
   transition: ease-in-out;
 }
@@ -450,11 +451,11 @@ li {
   position: relative;
   top: 250px;
   font-size: 1.3em;
-  box-sizing: border-box;
+  box-sizing: bSSorder-box;
 }
 
 .tasks ul li i {
-  padding-right: 20px;
+  width: 40px;
 }
 
 .tasks ul li {
@@ -494,4 +495,8 @@ table tr:nth-child(even) {
 
 li i {
   color: #f46f04;
+}
+
+li:hover i {
+  color: whitesmoke;
 }

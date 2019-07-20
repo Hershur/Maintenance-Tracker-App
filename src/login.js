@@ -6,12 +6,13 @@ login.addEventListener('click', event => {
 
   const userName = document.getElementById('username').value;
   const userPassword = document.getElementById('password').value;
+  const passError = document.getElementById('pass-error');
 
   if (userName == 'user' && userPassword == 'user') {
     window.location.href = 'dashboard.html';
   } else if (userName == 'admin' && userPassword == 'admin') {
     window.location.href = 'dashboard.html';
   } else {
-    alert('You have entered a wrong password');
+    passError.innerHTML = 'You have entered a wrong username or password . . .';
   }
 });
