@@ -2,12 +2,21 @@ const Router = require('express');
 const RequestControl = require('../controllers/control');
 const appRouter = Router();
 
-appRouter.get('/requests', RequestControl.allUserRequests);
+appRouter.get('/users', RequestControl.getAllUsers);
 
-appRouter.get('/requests/:id', RequestControl.getUserRequest);
+appRouter.get('/auth', RequestControl.authenticate);
 
-appRouter.post('/requests', RequestControl.createRequest);
+appRouter.post('/auth/signup', RequestControl.signUpUser);
 
-appRouter.put('/requests/:id', RequestControl.modifyRequest);
+appRouter.post('/auth/login', RequestControl.loginUser);
+
+
+appRouter.get('/users/requests', RequestControl.allUserRequests);
+
+appRouter.get('/users/requests/:id', RequestControl.getAUserRequest);
+
+appRouter.post('/users/requests', RequestControl.createRequest);
+
+appRouter.put('/users/requests/:id', RequestControl.modifyRequest);
 
 module.exports = appRouter;

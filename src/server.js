@@ -10,7 +10,7 @@ app.get('/', (req, res) => {
   return res.send({ message: 'Welcome to my endpoints' });
 });
 
-app.get('/api', (req, res) => {
+app.get('/users/api', (req, res) => {
   return res.send({ message: 'You wanna get your mind fucking blown nigga!' });
 });
 

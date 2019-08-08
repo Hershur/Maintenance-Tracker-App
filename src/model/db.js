@@ -1,7 +1,8 @@
 const pg = require('pg');
-const dotenv = require('d');
+const dotenv = require('dotenv');
 
-dotenv
+dotenv.config();
+
 const connectString = {
   user: 'postgres',
   host: 'localhost',
@@ -12,24 +13,44 @@ const connectString = {
 
 const pool = new pg.Pool(connectString);
 
-
 pool.on('connect', () => {});
 
-const createTable = async () => {
-  const queryText = `CREATE TABLE IF NOT EXISTS
+const createRequestTable = async () => {
+  const queryText = `
+    CREATE TABLE IF NOT EXISTS
     requests(id SERIAL PRIMARY KEY,
         name VARCHAR(128) NOT NULL,
-        request VARCHAR(256) NOT NULL,
+        request VARCHAR(255) NOT NULL,
         date DATE NOT NULL,
-        status BOOLEAN NOT NULL)`;
+        state ENUM ('Pending...', 'Completed') NOT NULL)`;
   try {
     await pool.query(queryText);
-    console.log('Table Created..');
+    console.log('Requests Table Created..');
   } catch (e) {
     console.log(e);
   }
 };
 
-createTable();
+createRequestTable();
+
+const createUsersTable = async () => {
+  const queryText = `
+    CREATE TABLE IF NOT EXISTS 
+    users(id SERIAL PRIMARY KEY,
+      name VARCHAR(128) NOT NULL,
+      email VARCHAR(128) NOT NULL,
+      password VARCHAR(64) NOT NULL,
+      phone_number INT,     
+      date DATE NOT NULL)`;
+
+  try {
+    await pool.query(queryText);
+    console.log('Users Table created...');
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+createUsersTable();
 
 module.exports = pool;
