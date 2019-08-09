@@ -2,14 +2,6 @@ const Router = require('express');
 const RequestControl = require('../controllers/control');
 const appRouter = Router();
 
-appRouter.get('/users', RequestControl.getAllUsers);
-
-appRouter.get('/auth', RequestControl.authenticate);
-
-appRouter.post('/auth/signup', RequestControl.signUpUser);
-
-appRouter.post('/auth/login', RequestControl.loginUser);
-
 
 appRouter.get('/users/requests', RequestControl.allUserRequests);
 

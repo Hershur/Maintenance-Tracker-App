@@ -26,7 +26,7 @@ class RequestControl {
       const checkEmail = await pool.query(query, value);
 
       if (checkEmail.rows.length) {
-        return res.json({ message: `An account with ${value} already exists` });
+        return res.status(400).json({ message: `An account with ${value} already exists` });
       }
     } catch (e) {
       console.log(e);
