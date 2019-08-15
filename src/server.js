@@ -1,16 +1,25 @@
+const path = require('path');
 const router = require('./routes/users');
 const express = require('express');
 const bodyParser = require('body-parser');
 const appRouter = require('./routes/routes');
 const app = express();
 
+app.set('view engine', 'pug');
+
+app.set('views', './views');
+
+app.use(express.static(path.join(__dirname, '../public')));
+
 app.use(bodyParser.json({ extended: true }));
 
 app.use(router);
 
 app.use(appRouter);
+
 app.get('/', (req, res) => {
-  return res.send({ message: 'Welcome to my endpoints' });
+  var file = 'index.html';
+  return res.sendFile(file, { root: './' });
 });
 
 app.get('/users/api', (req, res) => {
