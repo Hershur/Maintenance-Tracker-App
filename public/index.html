@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Maintenance Tracker App</title>
+    <link rel="stylesheet" type="text/css" href="styles/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins|Quicksand&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main>
+      <div class="name-logo">
+        <header>
+          <div class="header">
+            <div class="logo1"></div>
+            <div class="logo2"></div>
+            <div class="comp-name">Company</div>
+          </div>
+        </header>
+        <div class="company-name">
+          <h2 style="color:yellow">COMPANY</h2>
+          Maintenance Tracker
+        </div>
+        <p class="app-write-up">
+          Maintenance Tracker App is an application that provides users with the
+          ability to reach out to operations or repairs department regarding
+          repair or maintenance requests and monitor the status of the request.
+        </p>
+      </div>
+      <div id="welcome-section">
+        <h1 class="welcome">
+          Welcome to <span style="color:#F88F3B">Company</span>
+        </h1>
+        <form action="#" class="form" autocomplete="autocomplete">
+          <label id="username-label">Username</label>
+          <input
+            type="text"
+            name="username"
+            id="username"
+            placeholder="Username"
+          />
+          <label id="password-label">Password</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Password"
+          />
+          <div id="pass-error"></div>
+          <div class="actions">
+            <input
+              type="button"
+              onclick="window.location.href='create-account.html'"
+              value="CREATE ACCOUNT"
+              id="create-account"
+            />
+            <input type="submit" value="LOGIN" id="login" />
+          </div>
+        </form>
+      </div>
+
+      <div class="aside">
+        <div class="ball1"></div>
+        <div class="ball2"></div>
+        <div class="square1"></div>
+        <div class="square2"></div>
+        <div class="triangle"></div>
+      </div>
+    </main>
+    <script src="./main.js"></script>
+    <script src="./login.js"></script>
+  </body>
+</html>
