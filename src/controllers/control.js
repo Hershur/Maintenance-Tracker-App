@@ -1,6 +1,7 @@
 const express = require('express');
 
 const pool = require('../model/db');
+const bcrypt = require('bcrypt');
 
 class RequestControl {
   static authenticate(req, res) {
@@ -11,22 +12,25 @@ class RequestControl {
     const query = `SELECT * FROM users`;
     const users = await pool.query(query);
 
-    return res.json({ users: users.rows });
+    return res.json(users.rows);
   }
 
   static async signUpUser(req, res) {
     const name = req.body.name;
     const email = req.body.email;
-    const password = req.body.password; 
+    let password = req.body.password;
     const phone = req.body.phone;
-
+    const salt = await bcrypt.genSalt(10);
+    password = await bcrypt.hash(password, salt);
     try {
       const query = `SELECT * FROM users WHERE email = $1`;
       const value = [email];
       const checkEmail = await pool.query(query, value);
 
       if (checkEmail.rows.length) {
-        return res.status(400).json({ message: `An account with ${value} already exists` });
+        return res
+          .status(400)
+          .json({ message: `An account with '${value}' already exists` });
       }
     } catch (e) {
       console.log(e);
@@ -57,9 +61,11 @@ class RequestControl {
       const userLogin = await pool.query(query, value);
       const loginEmail = userLogin.rows[0].email;
       const loginPassword = userLogin.rows[0].password;
-      if (loginEmail == email && loginPassword == password) {
+      const validPassword = await bcrypt.compare(password, loginPassword);
+      if (validPassword) {
         return res.json({ message: userLogin.rows });
       }
+
       return res.json({ message: `Incorrect Username or password` });
     } catch (e) {
       console.log(e);
@@ -133,7 +139,7 @@ class RequestControl {
       const request = await pool.query(query, value);
       if (!request.rows.length)
         return res.json({
-          message: `No request asscociated with ID '${id}' was found`
+          message: `No request associated with ID '${id}' was found`
         });
     } catch (e) {
       console.log(e);

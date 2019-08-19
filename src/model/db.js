@@ -4,11 +4,11 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const connectString = {
-  user: 'postgres',
-  host: 'localhost',
-  database: 'maintenance_tracker',
-  password: 'GREATNESS',
-  port: 5000
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_NAME,
+  password: process.env.DB_PASSWORD,
+  port: process.env.DB_PORT
 };
 
 const pool = new pg.Pool(connectString);
@@ -40,7 +40,7 @@ const createUsersTable = async () => {
       name VARCHAR(128) NOT NULL,
       email VARCHAR(128) NOT NULL,
       password VARCHAR(64) NOT NULL,
-      phone_number INT,     
+      phone_number VARCHAR(32),     
       date DATE NOT NULL)`;
 
   try {

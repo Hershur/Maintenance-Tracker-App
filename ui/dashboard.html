@@ -67,9 +67,50 @@
             <td>Resolved</td>
           </tr>
         </table>
+
+        <div id="result"></div>
       </div>
     </main>
-    <script src="./src/main.js"></script>
-    <script src="./src/login.js"></script>
+    <script>
+      const getUsers = async () => {
+        try {
+          const results = await fetch(
+            'https://jsonplaceholder.typicode.com/posts',
+            {
+              method: 'GET'
+            }
+          );
+          const users = results.json();
+          // document.getElementById('result').innerHTML = users;
+          console.log(users);
+        } catch (e) {
+          console.log(`Error:${e}`);
+        }
+      };
+      getUsers();
+
+      function getPosts() {
+        fetch('http://localhost:3000/users')
+          .then(res => res.json())
+          .then(data => {
+            let output = '<h2 class="mb-4">Posts</h2>';
+            data.forEach(function(post) {
+              output += `
+            <div class="card card-body mb-3">
+              <h3>${post.id}</h3>
+              <p>${post.name}</p>
+              <p>${post.email}</p>
+              <p>${post.phone_number}</p>
+            </div>
+          `;
+            });
+            document.getElementById('result').innerHTML = output;
+            console.log(data);
+          });
+      }
+      getPosts();
+    </script>
+    <script src="./main.js"></script>
+    <script src="./login.js"></script>
   </body>
 </html>

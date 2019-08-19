@@ -9,7 +9,7 @@ app.set('view engine', 'pug');
 
 app.set('views', './views');
 
-app.use(express.static(path.join(__dirname, '../public')));
+app.use(express.static(path.join(__dirname, '../ui')));
 
 app.use(bodyParser.json({ extended: true }));
 
@@ -27,9 +27,8 @@ app.get('/users/api', (req, res) => {
 });
 
 app.use('*', (req, res) => {
-  return res
-    .status(404)
-    .json({ message: 'Cannot find what you are looking for...' });
+  var file = 'error.html';
+  return res.sendFile(file, { root: './ui' });
 });
 
 app.listen(3000, () => {
