@@ -1,5 +1,4 @@
 const express = require('express');
-
 const pool = require('../model/db');
 const bcrypt = require('bcrypt');
 
@@ -44,7 +43,7 @@ class RequestControl {
       const newUser = await pool.query(query, value);
 
       return res.json({
-        message: `Hello ${name}, your account has been created successfully`
+        message: `Hello ${name}, your account was created successfully`
       });
     } catch (e) {
       console.log(e);
@@ -94,7 +93,7 @@ class RequestControl {
       const request = await pool.query(query, value);
 
       if (!request.rows.length)
-        return res.json({
+        return res.status(400).json({
           message: `No request associated with ID '${id}' was found`
         });
 
@@ -161,9 +160,35 @@ class RequestControl {
         console.log(e);
       }
     }
-    return res.send({
-      message: `Request with ID ${id} cannot be found on this server`
-    });
+  }
+
+  static async resolveRequest(req, res) {
+    const id = parseInt(req.params.id, 10);
+    try {
+      const query = `SELECT * FROM requests WHERE id=$1`;
+      const value = [id];
+      const request = await pool.query(query, value);
+      if (!request.rows.length)
+        return res.status(404).json({
+          message: `No request associated with ID '${id}' was found`
+        });
+    } catch (e) {
+      console.log(e);
+    }
+
+    try {
+      const query = `UPDATE requests SET state = 'Resolved' WHERE id = $1 RETURNING *`;
+      const value = [id];
+      const resolvedRequest = await pool.query(query, value);
+
+      return res.json({
+        message: 'Your request has been resolved accordingly...',
+        request: resolvedRequest.rows
+      });
+    } catch (e) {
+      console.log(e);
+    }
+    
   }
 }
 
