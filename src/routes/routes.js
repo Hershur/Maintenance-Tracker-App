@@ -12,4 +12,6 @@ appRouter.put('/users/requests/:id', RequestControl.modifyRequest);
 
 appRouter.put('/users/requests/:id/resolve', RequestControl.resolveRequest);
 
+appRouter.put('/users/requests/:id/reject', RequestControl.rejectRequest);
+
 module.exports = appRouter;

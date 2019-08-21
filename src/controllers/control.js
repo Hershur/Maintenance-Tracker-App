@@ -1,3 +1,4 @@
+const jwt = require('jsonwebtoken');
 const express = require('express');
 const pool = require('../model/db');
 const bcrypt = require('bcrypt');
@@ -42,7 +43,8 @@ class RequestControl {
       const value = [name, email, password, phone];
       const newUser = await pool.query(query, value);
 
-      return res.json({
+      const token = jwt.sign({ email: email }, process.env.jwtPrivateKey);
+      return res.header('x-auth-token', token).json({
         message: `Hello ${name}, your account was created successfully`
       });
     } catch (e) {
@@ -61,11 +63,19 @@ class RequestControl {
       const loginEmail = userLogin.rows[0].email;
       const loginPassword = userLogin.rows[0].password;
       const validPassword = await bcrypt.compare(password, loginPassword);
+
       if (validPassword) {
-        return res.json({ message: userLogin.rows });
+        const token = jwt.sign(
+          { email: loginEmail },
+          process.env.jwtPrivateKey,
+          { expiresIn: '1h' }
+        );
+        return res
+          .header('x-auth-token', token)
+          .json({ message: userLogin.rows, token: token });
       }
 
-      return res.json({ message: `Incorrect Username or password` });
+      return res.json({ message: `Incorrect username or password` });
     } catch (e) {
       console.log(e);
     }
@@ -188,7 +198,34 @@ class RequestControl {
     } catch (e) {
       console.log(e);
     }
-    
+  }
+
+  static async rejectRequest(req, res) {
+    const id = parseInt(req.params.id, 10);
+    try {
+      const query = `SELECT * FROM requests WHERE id=$1`;
+      const value = [id];
+      const request = await pool.query(query, value);
+      if (!request.rows.length)
+        return res.status(404).json({
+          message: `No request associated with ID '${id}' was found`
+        });
+    } catch (e) {
+      console.log(e);
+    }
+
+    try {
+      const query = `UPDATE requests SET state = 'Canceled' WHERE id = $1 RETURNING *`;
+      const value = [id];
+      const resolvedRequest = await pool.query(query, value);
+
+      return res.json({
+        message: 'Request has been canceled...',
+        request: resolvedRequest.rows
+      });
+    } catch (e) {
+      console.log(e);
+    }
   }
 }
 
